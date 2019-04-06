@@ -75,7 +75,7 @@ typingtest()
 return
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 MouseLoop() {
-Mousemove, 0, 0, 0,
+	Mousemove, 0, 0, 0,
 	Loop, 108{
 		MouseMove, 10, 10, 0, R
 	}
@@ -85,14 +85,11 @@ MouseLoop()
 return
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 RandomTest() {
-	RanGen = 51
-	;random, RanGen, 0, 99
-	if (%RanGen% < 50) {
-		Msgbox, 0, Luck Viewer, Your number is only %RanGen%, go fuck yourself, Hobo!
-	}
-	if (%RanGen% >= 50) {
-		Msgbox, 0, Luck Viewer, Your number is %RanGen%, niiiiiiiice!
-	}
+	random, RanGen, 0, 99
+	if (RanGen >= 50)
+		msgbox, 0, rangen check, Your number is high (%RanGen%), 
+	else 
+		msgbox, 0, rangen check, Your number is low (%RanGen%), 
 }
 ^!K::
 RandomTest()
