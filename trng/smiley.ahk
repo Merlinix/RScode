@@ -49,7 +49,7 @@ location() {
     PixelGetColor color, %mouseX%, %mouseY%
     MsgBox Cursor: (%mouseX%, %mouseY%) `nColor: %color%
 }
-^!L::
+^!L::;
 location()
 return
 
@@ -82,4 +82,18 @@ Mousemove, 0, 0, 0,
 }
 ^!O::
 MouseLoop()
+return
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+RandomTest() {
+	RanGen = 51
+	;random, RanGen, 0, 99
+	if (%RanGen% < 50) {
+		Msgbox, 0, Luck Viewer, Your number is only %RanGen%, go fuck yourself, Hobo!
+	}
+	if (%RanGen% >= 50) {
+		Msgbox, 0, Luck Viewer, Your number is %RanGen%, niiiiiiiice!
+	}
+}
+^!K::
+RandomTest()
 return
