@@ -1,4 +1,4 @@
-CoordMode, Mouse, Screen ; Use absolute screen coordinates
+;CoordMode, Mouse, Screen ; Use absolute screen coordinates
 
 reload() {
 	MsgBox,, Stupid Box, Reloaded!, 0.3
@@ -80,23 +80,40 @@ randomTest() {
 randomTest()
 return
 
-cookieCLicker() {
+;cookieClicker() {
 ;	Run, http://orteil.dashnet.org/cookieclicker/
 ;	sleep 1
 ;	WinActivate, http://orteil.dashnet.org/cookieclicker/
 ;	click 291, 492
 ;	Sleep 10
-	MouseGetPos, mouseX, mouseY
-	loop {
-		originX = %mouseX%
-		originY = %mouseY%
-		Random, varX, -50, 50
-		Random, varY, -50, 50
-		varX = %originX% + %varX%
-		varY = %originY% + %varY%
-		Click %varX%, %varY%
-	}
+;	MouseGetPos, mouseX, mouseY
+;	loop {
+;		originX = %mouseX%
+;		originY = %mouseY%
+;		Random, varX, -50, 50
+;		Random, varY, -50, 50
+;		varX = %originX% + %varX%
+;		varY = %originY% + %varY%
+;		Click %varX%, %varY%
+;	}
+;}
+;^!C::
+;cookieClicker()
+;return
+
+cookieCLicker() {
+    MouseGetPos, mouseX, mouseY
+    loop {
+		variance = 25
+        originX = %mouseX%
+        originY = %mouseY%
+        Random, varX, -%variance%, %variance%
+        Random, varY, -%variance%, %variance%
+        originX += %varX%
+        originY += %varY%
+        Click %originX%, %originY%
+    }
 }
 ^!C::
-cookieCLicker()
+cookieClicker()
 return
