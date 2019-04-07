@@ -57,20 +57,10 @@ timestamp() {
 timestamp()
 return
 
-typingtest() {
-	run notepad
-	sleep 10
-	Winactivate, Untitled - Notepad
-	sendraw Bryan has a small dick 
-}
-^!Y::
-typingtest()
-return
-
 mouseLoop() {
-	mousemove, 0, 0, 0,
+	mouseMove, 0, 0, 0,
 	Loop, 108 {
-		mousemove, 10, 10, 0, R
+		mouseMove, 10, 10, 0, R
 	}
 }
 ^!O::
@@ -88,4 +78,25 @@ randomTest() {
 }
 ^!K::
 randomTest()
+return
+
+cookieCLicker() {
+;	Run, http://orteil.dashnet.org/cookieclicker/
+;	sleep 1
+;	WinActivate, http://orteil.dashnet.org/cookieclicker/
+;	click 291, 492
+;	Sleep 10
+	MouseGetPos, mouseX, mouseY
+	loop {
+		originX = %mouseX%
+		originY = %mouseY%
+		Random, varX, -50, 50
+		Random, varY, -50, 50
+		varX = %originX% + %varX%
+		varY = %originY% + %varY%
+		Click %varX%, %varY%
+	}
+}
+^!C::
+cookieCLicker()
 return
