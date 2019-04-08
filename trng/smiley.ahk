@@ -31,7 +31,7 @@ smiley() {
 	click
 	sleep 5
 	mousemove, 1, -1,,R ;R Smirk
-click
+	click
 }
 ^!S::
 smiley()
