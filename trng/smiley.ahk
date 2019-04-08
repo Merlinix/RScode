@@ -117,3 +117,17 @@ cookieCLicker() {
 ^!C::
 cookieClicker()
 return
+
+find() {
+	CoordMode Pixel  ; Interprets the coordinates below as relative to the screen rather than the active window.
+	ImageSearch, FoundX, FoundY, 0, 0, A_ScreenWidth, A_ScreenHeight, icon.png
+	if ErrorLevel = 2
+		msgbox Could not conduct the search.
+	else if ErrorLevel = 1
+		msgbox Icon could not be found on the screen.
+	else
+		msgbox The icon was found at %FoundX%x%FoundY%.
+}
+^!F::
+find()
+return
