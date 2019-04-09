@@ -21,9 +21,9 @@ camera_reset() {
     CoordMode, Mouse, Window
     WinActivate, RuneScape
     random, inject, 1, 10
-    map_x := (23 + %inject%)
-    map_y := (80 + %inject%)
-    w_wait := (1200 + 5 * %inject%)
+    map_x := 23 + inject
+    map_y := 80 + inject
+	w_wait = 1200 + 5 * inject
     Click %map_x%, %map_y%
     Send, {W down}
     Sleep %w_wait%
@@ -32,7 +32,7 @@ camera_reset() {
 }
 
 find_epoch() {
-
+	;
 }
 
 mine_ada() {
